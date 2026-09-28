@@ -6,14 +6,27 @@ Boilpoint; tam teşekküllü yönetim panellerinden (Admin Dashboards), bağıms
 
 ---
 
+## 📸 Ekran Görüntüleri (Previews)
+
+<div align="center">
+  <img src="./assets/obsidian-dashboard.png" alt="Obsidian Admin Dashboard Önizleme" width="100%" style="border-radius: 12px; margin-bottom: 16px;" />
+  <p><em>💎 Obsidian Admin — Koyu Tema, Analitik & KPI Kokpiti</em></p>
+  <br/>
+  <img src="./assets/obsidian-editor.png" alt="Obsidian Markdown & AI Editör Önizleme" width="100%" style="border-radius: 12px;" />
+  <p><em>✨ Obsidian Editor — Zengin Markdown & AI Destekli İçerik Stüdyosu</em></p>
+</div>
+
+---
+
 ## 📂 Şablon Hiyerarşisi
 
 ```text
 boilpoint/
 ├── README.md                           # Ana katalog ve rehber
+├── assets/                             # Önizleme görselleri & ekran görüntüleri
 └── templates/
     ├── admin/                          # 🛠️ Yönetim Paneli Şablonları
-    │   ├── obsidian/                   # Koyu tema, cam efektli, AI destekli admin kokpiti
+    │   ├── obsidian/                   # 💎 Koyu tema, cam efektli, AI destekli admin kokpiti
     │   └── minimal/                    # (Yakında) Sade & kurumsal admin paneli
     ├── headers/                        # 🧭 Navbar & Header Koleksiyonu (Yakında)
     │   ├── floating-glass/             # Yüzen cam efektli modern navbar

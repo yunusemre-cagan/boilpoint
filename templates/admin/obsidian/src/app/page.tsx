@@ -93,6 +93,17 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Preview Visual */}
+      <section className="relative z-10 max-w-5xl mx-auto px-6 py-6 w-full">
+        <div className="rounded-2xl border border-zinc-800/80 bg-zinc-900/50 p-2 shadow-2xl backdrop-blur-md">
+          <img
+            src="/preview-dashboard.png"
+            alt="Obsidian Admin Dashboard Preview"
+            className="rounded-xl w-full h-auto object-cover border border-zinc-800"
+          />
+        </div>
+      </section>
+
       {/* Feature Grid */}
       <section className="relative z-10 max-w-6xl mx-auto px-6 py-12 w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {[

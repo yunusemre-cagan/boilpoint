@@ -6,6 +6,18 @@ Bu şablon, **Boilpoint** boilerplate koleksiyonunun koyu temalı, zengin özell
 
 ---
 
+## 📸 Önizleme (Preview)
+
+<div align="center">
+  <img src="./public/preview-dashboard.png" alt="Obsidian Admin Dashboard" width="100%" style="border-radius: 12px; margin-bottom: 16px;" />
+  <p><em>Dashboard & Analitik Görünümü</em></p>
+  <br/>
+  <img src="./public/preview-editor.png" alt="Obsidian Post & AI Editor" width="100%" style="border-radius: 12px;" />
+  <p><em>Zengin Markdown Editörü & Canlı Ayarlar</em></p>
+</div>
+
+---
+
 ## 🚀 Hızlı Başlangıç
 
 ### 1. Şablonu Yeni Bir Klasöre İndirin (degit ile)
