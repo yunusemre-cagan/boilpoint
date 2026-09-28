@@ -32,73 +32,69 @@ Next.js 15+ (App Router), Tailwind CSS, Prisma ve TypeScript ile hazırlanmış;
 Her yeni web projesinde kimlik doğrulama, admin paneli, karanlık tema, veritabanı şemaları veya navigasyon çubuklarını sıfırdan kodlamak haftalarca zaman kaybettirir. 
 
 **Boilpoint** bu süreci saniyeler seviyesine indirir:
-* **🚀 Tek Komutla Kurulum (degit):** Tüm repoyu klonlamanıza gerek kalmaz. Sadece ihtiyacınız olan şablonu, sıfır git geçmişiyle doğrudan yeni projenize çekersiniz.
-* **🛡️ Sıfır Kişisel Veri & Temiz Kod:** Tüm şablonlar şifrelerden, kişisel içeriklerden ve hardcoded linklerden arındırılmış, çevre değişkenlerine (.env) veya parametrelere bağlı jenerik mimarilerdir.
-* **🎨 Kusursuz Tasarım Sistemi:** Özel CSS değişkenleri (design tokens), koyu/açık tema uyumu, mobil duyarlı kenar çubukları ve akıcı mikro-animasyonlar.
+* **🚀 Tek Komutla Kurulum (`degit`):** Tüm depoyu klonlamanıza gerek kalmaz. Sadece ihtiyacınız olan şablonu, sıfır git geçmişiyle doğrudan yeni projenize çekersiniz.
+* **🛡️ Sıfır Kişisel Veri & Temiz Kod:** Tüm şablonlar şifrelerden, kişisel içeriklerden ve hardcoded linklerden arındırılmış, jenerik ve modüler mimarilerdir.
+* **🎨 Kusursuz Tasarım Sistemi:** Özel CSS değişkenleri (design tokens), koyu/açık tema uyumu, mobil duyarlı bileşenler ve akıcı mikro-animasyonlar.
 * **⚡ Modern Teknoloji Yığını:** Next.js 15 (App Router & Server Actions), React 19, Prisma ORM, NextAuth ve Tailwind CSS.
 
 ---
 
 ## 📦 Şablon Kataloğu (Template Catalog)
 
-### 🛠️ Yönetim Panelleri (templates/admin/)
-
-| Şablon Adı | Açıklama | Anahtar Özellikler | Hızlı Başlat (degit) |
-| :--- | :--- | :--- | :--- |
-| [**💎 obsidian**](./templates/admin/obsidian)<br />[🔗 Canlı İncele](https://yunusemrecagan.com/demo/admin/obsidian) | Koyu temalı, cam efektli, analitik ve AI destekli eksiksiz Admin Kokpiti | • KPI & 30 Günlük Trafik Analizi<br />• Isı Haritası (Heatmap) & Kullanıcı Akışı<br />• Gemini & FLUX ile AI İçerik/Görsel Stüdyosu<br />• Blog & Yorum Moderasyon Altyapısı<br />• CMD+K Komut Paleti & NextAuth | `npx degit yunusemre-cagan/boilpoint/templates/admin/obsidian my-admin` |
-| **minimal** *(Yakında)* | Sade, yüksek kontrastlı ve ultra hafif yönetim arayüzü | • SQLite & Postgres Desteği<br />• Minimalist Veri Tabloları<br />• Rol Tabanlı Yetkilendirme | *Geliştirme Aşamasında* |
-
-### 🧭 Navigasyon & Header (templates/headers/)
-
-| Şablon Adı | Açıklama | Anahtar Özellikler | Hızlı Başlat (degit) |
-| :--- | :--- | :--- | :--- |
-| [**🧭 floating-glass**](./templates/headers/floating-glass) | Scroll duyarlı daralan, cam (glassmorphism) efektli yüzen pill navbar | • Scroll animasyonu (scroll-shrink pill)<br />• Koyu / Açık tema geçişi (next-themes)<br />• Mobil Drawer & ⌘K Arama desteği<br />• Bağımsız veya tak-çalıştır bileşen | `npx degit yunusemre-cagan/boilpoint/templates/headers/floating-glass my-header` |
-| **megamenu-saas** *(Yakında)* | Geniş açılır kategorili ve SaaS odaklı üst menü | • Çok sütunlu dropdown menüler<br />• Kategori ikonları & öne çıkanlar | *Geliştirme Aşamasında* |
-
-### 🚀 Karşılama & Landing Sayfaları (templates/landing/) *(Çok Yakında)*
-* **saas-bento**: Modern Bento-grid düzeni, fiyatlandırma tabloları ve bekleme listesi entegrasyonu.
+| Şablon | Kategori | Açıklama | Önizleme & Kurulum |
+| :--- | :--- | :--- | :---: |
+| [**💎 obsidian**](./templates/admin/obsidian) | 🛠️ Admin Paneli | Koyu tema, analitik kokpiti, FLUX & Gemini AI stüdyosu | [⚡ Canlı Demo](https://yunusemrecagan.com/demo/admin/obsidian) · [Detaylar →](./templates/admin/obsidian) |
+| [**🧭 floating-glass**](./templates/headers/floating-glass) | 🧭 Header / Navbar | Scroll duyarlı daralan, cam efektli yüzen pill navbar | [Önizleme](./templates/headers/floating-glass) · [Detaylar →](./templates/headers/floating-glass) |
+| **minimal** | 🛠️ Admin Paneli | Sade, yüksek kontrastlı ve ultra hafif yönetim arayüzü | *Geliştirme Aşamasında* |
+| **megamenu-saas** | 🧭 Header / Navbar | Çok sütunlu, kategorili SaaS üst navigasyon menüsü | *Geliştirme Aşamasında* |
+| **saas-bento** | 🚀 Landing Page | Bento-grid düzeni, fiyatlandırma tabloları ve bekleme listesi | *Geliştirme Aşamasında* |
 
 ---
 
-## ⚡ Hızlı Başlangıç Kılavuzu
+## 🛠️ Şablon Detayları & Hızlı Kurulum
 
-İstediğiniz şablonu terminalinizden tek komutla yeni projenize aktarın:
+### 1. 💎 Obsidian Admin Cockpit (`templates/admin/obsidian`)
+> Koyu temalı, cam (glassmorphism) efektli, analitik ve AI stüdyo destekli eksiksiz Next.js 15 yönetim kokpiti.
 
-### Örnek 1: Obsidian Admin Panelini Başlatma
+* **Öne Çıkan Özellikler:** KPI & 30 Günlük Trafik Analizi, Isı Haritası (Heatmap) & Kullanıcı Akışı, Gemini & FLUX ile AI İçerik/Görsel Stüdyosu, Blog & Yorum Moderasyon Altyapısı, CMD+K Komut Paleti & NextAuth.
+* **Teknoloji:** Next.js 15 (App Router), React 19, Tailwind CSS, Prisma ORM, NextAuth, Lucide Icons.
+* **Canlı Demo:** [yunusemrecagan.com/demo/admin/obsidian](https://yunusemrecagan.com/demo/admin/obsidian)
+* **Tek Komutla Kurulum:**
 ```bash
-# 1. Şablonu yeni klasörünüze indirin
-npx degit yunusemre-cagan/boilpoint/templates/admin/obsidian yeni-projem
-
-# 2. Proje dizinine geçin
-cd yeni-projem
-
-# 3. Bağımlılıkları yükleyin
-npm install
-
-# 4. Çevre değişkenlerini oluşturun
-cp .env.example .env
-
-# 5. Veritabanını eşitleyin ve örnek verileri yükleyin
-npx prisma db push
-npm run prisma:seed
-
-# 6. Geliştirme sunucusunu başlatın
-npm run dev
+npx degit yunusemre-cagan/boilpoint/templates/admin/obsidian my-admin
 ```
 
-> 💡 **Varsayılan Giriş Bilgileri:**
-> * **URL:** http://localhost:3000/admin
-> * **E-posta:** admin@example.com
-> * **Şifre:** admin123
+---
 
-### Örnek 2: Floating Glass Navbar Başlatma
+### 2. 🧭 Floating Glass Navbar (`templates/headers/floating-glass`)
+> Sayfa kaydırıldıkça daralan (scroll-shrink), cam (glassmorphism) efektli, koyu/açık tema ve mobil drawer menü destekli modern yüzen navigasyon çubuğu.
+
+* **Öne Çıkan Özellikler:** Scroll-shrink animasyonu (`max-w-6xl` ➔ `max-w-5xl`), `next-themes` koyu/açık tema seçici, Mobil açılır drawer menü, `⌘K` Arama tetikleyici, Tak-çalıştır modüler mimari.
+* **Tasarım Kaynağı:** [yunusemrecagan.com](https://yunusemrecagan.com) ana site navigasyon tasarımı.
+* **Teknoloji:** Next.js 15, Tailwind CSS, Lucide Icons, `next-themes`.
+* **Tek Komutla Kurulum:**
 ```bash
-# Bağımsız starter olarak:
-npx degit yunusemre-cagan/boilpoint/templates/headers/floating-glass yeni-header
-cd yeni-header && npm install && npm run dev
+npx degit yunusemre-cagan/boilpoint/templates/headers/floating-glass my-header
+```
 
-# Veya mevcut projenize sadece bileşenleri kopyalayın:
-# src/components/Navbar.tsx ve src/components/ThemeToggle.tsx
+---
+
+## ⚡ Hızlı Başlangıç Rehberi
+
+Herhangi bir şablonu indirdikten sonra çalıştırmak için standart adımlar:
+
+```bash
+# 1. Proje dizinine geçin
+cd <proje-klasorunuz>
+
+# 2. Bağımlılıkları yükleyin
+npm install
+
+# 3. Varsa çevre değişkenlerini kopyalayın
+cp .env.example .env
+
+# 4. Geliştirme sunucusunu başlatın
+npm run dev
 ```
 
 ---
@@ -114,10 +110,10 @@ boilpoint/
 │   └── floating-glass-navbar.png
 └── templates/
     ├── admin/                          # 🛠️ Yönetim Paneli Şablonları
-    │   ├── obsidian/                   # 💎 1. Şablon: Obsidian Admin Cockpit
+    │   ├── obsidian/                   # 💎 Obsidian Admin Cockpit
     │   └── minimal/                    # (Yakında) Sade & hafif admin paneli
     ├── headers/                        # 🧭 Navbar & Header Tasarımları
-    │   ├── floating-glass/             # 🧭 1. Şablon: Floating Glass Navbar
+    │   ├── floating-glass/             # 🧭 Floating Glass Navbar
     │   └── megamenu-saas/              # (Yakında) SaaS mega menü
     ├── footers/                        # 🔻 Modern Footer Şablonları (Yakında)
     └── landing/                        # 🚀 SaaS & Ürün Tanıtım Sayfaları (Yakında)
