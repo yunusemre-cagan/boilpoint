@@ -4,6 +4,12 @@ Next.js 15+ (App Router), Tailwind CSS, Prisma ve NextAuth ile sıfırdan inşa 
 
 Bu şablon, **Boilpoint** boilerplate koleksiyonunun koyu temalı, zengin özellikli ve AI destekli ilk yönetim paneli şablonudur.
 
+<p align="center">
+  <a href="https://yunusemrecagan.com/demo/admin/obsidian" target="_blank">
+    <img src="https://img.shields.io/badge/⚡_CANLI_DEMO_İNCELE-Obsidian_Admin-6366f1?style=for-the-badge&logo=vercel&logoColor=white" alt="Canlı Demo İncele" />
+  </a>
+</p>
+
 ---
 
 ## 📸 Önizleme (Preview)

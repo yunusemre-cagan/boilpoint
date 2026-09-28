@@ -2,6 +2,12 @@
 
 > Modern, ölçeklenebilir ve yüksek standartlı web projeleri için **Kategorize Boilerplate & Starter Şablon Koleksiyonu**.
 
+<p align="center">
+  <a href="https://yunusemrecagan.com/demo/admin/obsidian" target="_blank">
+    <img src="https://img.shields.io/badge/⚡_CANLI_DEMO_İNCELE-Obsidian_Admin-6366f1?style=for-the-badge&logo=vercel&logoColor=white" alt="Canlı Demo İncele" />
+  </a>
+</p>
+
 Boilpoint; tam teşekküllü yönetim panellerinden (Admin Dashboards), bağımsız header/navbar tasarımlarına, açılış sayfalarından (Landing Pages) mikro UI bileşenlerine kadar her şeyi kategorize edilmiş, modüler ve tak-çalıştır bir yapıda sunar.
 
 ---
@@ -44,7 +50,7 @@ boilpoint/
 
 | Şablon | Açıklama | Teknolojiler | Hızlı İndir (`degit`) |
 | :--- | :--- | :--- | :--- |
-| [**`obsidian`**](./templates/admin/obsidian) | Koyu temalı, cam efektli, AI destekli (Gemini + FLUX), analitik & ısı haritalı, tam moderasyonlu kokpit | Next.js 15, Tailwind, Prisma, NextAuth | `npx degit yunusemre-cagan/boilpoint/templates/admin/obsidian my-admin` |
+| [**`obsidian`**](./templates/admin/obsidian) · [🔗 Canlı Demo](https://yunusemrecagan.com/demo/admin/obsidian) | Koyu temalı, cam efektli, AI destekli (Gemini + FLUX), analitik & ısı haritalı, tam moderasyonlu kokpit | Next.js 15, Tailwind, Prisma, NextAuth | `npx degit yunusemre-cagan/boilpoint/templates/admin/obsidian my-admin` |
 | `minimal` | Sade, minimalist ve hafif kurumsal yönetim paneli | Next.js 15, Tailwind, SQLite/Postgres | *Yakında* |
 
 ### 🧭 Header & Navigasyon (`templates/headers/`) *(Çok Yakında)*
