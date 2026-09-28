@@ -1,0 +1,192 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  INSTRUCTOR
+  STUDENT
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  SCHEDULED
+}
+
+enum ModerationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum QuizDifficulty {
+  TEMEL
+  KAZANIM
+  YENI_NESIL
+}
+
+model User {
+  id            String         @id @default(cuid())
+  name          String?
+  email         String         @unique
+  passwordHash  String?
+  role          Role           @default(STUDENT)
+  image         String?
+  grade         Int?           // Örn: 5, 6, 7, 8
+  schoolName    String?
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  posts         Post[]
+  quizAttempts  QuizAttempt[]
+}
+
+model Category {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  slug      String   @unique
+  posts     Post[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Tag {
+  id        String      @id @default(cuid())
+  name      String      @unique
+  slug      String      @unique
+  posts     TagOnPost[]
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+model TagOnPost {
+  postId String
+  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  tagId  String
+  tag    Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([postId, tagId])
+}
+
+model Post {
+  id              String      @id @default(cuid())
+  title           String
+  slug            String      @unique
+  content         String
+  excerpt         String?
+  coverImage      String?
+  status          PostStatus  @default(DRAFT)
+  publishedAt     DateTime?
+  viewCount       Int         @default(0)
+
+  authorId        String
+  author          User        @relation(fields: [authorId], references: [id])
+  categoryId      String?
+  category        Category?   @relation(fields: [categoryId], references: [id])
+  tags            TagOnPost[]
+  comments        Comment[]
+
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+}
+
+model Comment {
+  id        String           @id @default(cuid())
+  name      String
+  email     String
+  content   String
+  status    ModerationStatus @default(PENDING)
+  postId    String
+  post      Post             @relation(fields: [postId], references: [id], onDelete: Cascade)
+  createdAt DateTime         @default(now())
+
+  @@index([status])
+}
+
+model Quiz {
+  id          String         @id @default(cuid())
+  title       String
+  slug        String         @unique
+  description String?
+  grade       Int
+  unit        String?        @default("GENEL")
+  topic       String
+  difficulty  QuizDifficulty @default(KAZANIM)
+  durationMin Int            @default(20)
+  isPublished Boolean        @default(true)
+  order       Int            @default(0)
+
+  questions   QuizQuestion[]
+  attempts    QuizAttempt[]
+
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+}
+
+model QuizQuestion {
+  id          String   @id @default(cuid())
+  quizId      String
+  quiz        Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  question    String
+  imageUrl    String?
+  options     Json     // [{ id: 0, text: "A) ...", isCorrect: boolean }]
+  explanation String?
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model QuizAttempt {
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  quizId       String
+  quiz         Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  score        Int      // 100 üzerinden
+  correctCount Int
+  wrongCount   Int
+  emptyCount   Int
+  timeSpentSec Int
+  completedAt  DateTime @default(now())
+
+  @@index([userId])
+  @@index([quizId])
+}
+
+model DailyQuestion {
+  id            String    @id @default(cuid())
+  grade         String
+  topic         String
+  question      String
+  options       Json
+  explanation   String?
+  isActive      Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model PageView {
+  id         String   @id @default(cuid())
+  path       String
+  referrer   String?
+  deviceType String?
+  createdAt  DateTime @default(now())
+
+  @@index([createdAt])
+}

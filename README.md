@@ -8,7 +8,8 @@ Next.js 15+ (App Router), Tailwind CSS, Prisma ve TypeScript ile hazırlanmış;
 
 <br />
 
-[![Live Demo](https://img.shields.io/badge/⚡_Canlı_Demo-Obsidian_Admin-6366f1?style=for-the-badge&logo=vercel&logoColor=white)](https://yunusemrecagan.com/demo/admin/obsidian)
+[![Live Demo: Obsidian](https://img.shields.io/badge/⚡_Demo-Obsidian_Admin-6366f1?style=for-the-badge&logo=vercel&logoColor=white)](https://yunusemrecagan.com/demo/admin/obsidian)
+[![Live Demo: Academy](https://img.shields.io/badge/⚡_Demo-Academy_LMS-8b5cf6?style=for-the-badge&logo=vercel&logoColor=white)](https://yunusemrecagan.com/demo/admin/academy)
 [![Next.js](https://img.shields.io/badge/Next.js-15.2-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-v3.4-38bdf8?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
@@ -44,6 +45,7 @@ Her yeni web projesinde kimlik doğrulama, admin paneli, karanlık tema, veritab
 | Şablon | Kategori | Açıklama | Önizleme & Kurulum |
 | :--- | :--- | :--- | :---: |
 | [**💎 obsidian**](./templates/admin/obsidian) | 🛠️ Admin Paneli | Koyu tema, analitik kokpiti, FLUX & Gemini AI stüdyosu | [⚡ Canlı Demo](https://yunusemrecagan.com/demo/admin/obsidian) · [Detaylar →](./templates/admin/obsidian) |
+| [**🎓 academy**](./templates/admin/academy) | 🛠️ Admin Paneli | Royal Indigo tema, öğrenci CRM, quiz motoru & eğitim kokpiti | [⚡ Canlı Demo](https://yunusemrecagan.com/demo/admin/academy) · [Detaylar →](./templates/admin/academy) |
 | [**🧭 floating-glass**](./templates/headers/floating-glass) | 🧭 Header / Navbar | Scroll duyarlı daralan, cam efektli yüzen pill navbar | [Önizleme](./templates/headers/floating-glass) · [Detaylar →](./templates/headers/floating-glass) |
 | **minimal** | 🛠️ Admin Paneli | Sade, yüksek kontrastlı ve ultra hafif yönetim arayüzü | *Geliştirme Aşamasında* |
 | **megamenu-saas** | 🧭 Header / Navbar | Çok sütunlu, kategorili SaaS üst navigasyon menüsü | *Geliştirme Aşamasında* |
@@ -66,7 +68,20 @@ npx degit yunusemre-cagan/boilpoint/templates/admin/obsidian my-admin
 
 ---
 
-### 2. 🧭 Floating Glass Navbar (`templates/headers/floating-glass`)
+### 2. 🎓 Academy LMS Dashboard (`templates/admin/academy`)
+> Royal Indigo renk paleti, öğrenci CRM, deneme sınavı & quiz motoru, ders notları ve moderasyon özellikli eksiksiz eğitim yönetim kokpiti.
+
+* **Öne Çıkan Özellikler:** 30 Günlük Ziyaretçi & Deneme Trafik Grafiği (Recharts AreaChart), Öğrenci CRM & Başarı Analizi (5-8. sınıf), Çoktan Seçmeli Quiz & Soru Bankası Motoru, Ders Notları & Blog Yönetimi, Onay Bekleyen Yorum Moderasyonu.
+* **Teknoloji:** Next.js 15 (App Router), React 19, Tailwind CSS, Prisma ORM, Recharts, `next-themes`.
+* **Canlı Demo:** [yunusemrecagan.com/demo/admin/academy](https://yunusemrecagan.com/demo/admin/academy)
+* **Tek Komutla Kurulum:**
+```bash
+npx degit yunusemre-cagan/boilpoint/templates/admin/academy my-academy
+```
+
+---
+
+### 3. 🧭 Floating Glass Navbar (`templates/headers/floating-glass`)
 > Sayfa kaydırıldıkça daralan (scroll-shrink), cam (glassmorphism) efektli, koyu/açık tema ve mobil drawer menü destekli modern yüzen navigasyon çubuğu.
 
 * **Öne Çıkan Özellikler:** Scroll-shrink animasyonu (`max-w-6xl` ➔ `max-w-5xl`), `next-themes` koyu/açık tema seçici, Mobil açılır drawer menü, `⌘K` Arama tetikleyici, Tak-çalıştır modüler mimari.
@@ -107,10 +122,12 @@ boilpoint/
 ├── LICENSE                             # MIT Açık Kaynak Lisansı
 ├── assets/                             # Vitrin ve önizleme görselleri
 │   ├── obsidian-dashboard.png
+│   ├── academy-dashboard.png
 │   └── floating-glass-navbar.png
 └── templates/
     ├── admin/                          # 🛠️ Yönetim Paneli Şablonları
-    │   ├── obsidian/                   # 💎 Obsidian Admin Cockpit
+    │   ├── obsidian/                   # 💎 Obsidian Admin Cockpit (AI & Analitik)
+    │   ├── academy/                    # 🎓 Academy LMS Dashboard (Eğitim & Quiz)
     │   └── minimal/                    # (Yakında) Sade & hafif admin paneli
     ├── headers/                        # 🧭 Navbar & Header Tasarımları
     │   ├── floating-glass/             # 🧭 Floating Glass Navbar
