@@ -1,31 +1,57 @@
 # 🔥 Boilpoint
 
-> Modern, ölçeklenebilir ve yüksek standartlı web projeleri için **Boilerplate & Starter Şablon Koleksiyonu**.
+> Modern, ölçeklenebilir ve yüksek standartlı web projeleri için **Kategorize Boilerplate & Starter Şablon Koleksiyonu**.
 
-Boilpoint, her yeni projeye sıfırdan başlamak yerine; kanıtlanmış mimariler, zengin UI kütüphaneleri, kimlik doğrulama, veritabanı ve tema sistemleriyle donatılmış tak-çalıştır şablonları bir arada sunar.
+Boilpoint; tam teşekküllü yönetim panellerinden (Admin Dashboards), bağımsız header/navbar tasarımlarına, açılış sayfalarından (Landing Pages) mikro UI bileşenlerine kadar her şeyi kategorize edilmiş, modüler ve tak-çalıştır bir yapıda sunar.
 
 ---
 
-## 📦 Şablon Kataloğu (Templates)
+## 📂 Şablon Hiyerarşisi
 
-| Şablon | Açıklama | Teknoloji | Hızlı İndir |
+```text
+boilpoint/
+├── README.md                           # Ana katalog ve rehber
+└── templates/
+    ├── admin/                          # 🛠️ Yönetim Paneli Şablonları
+    │   ├── obsidian/                   # Koyu tema, cam efektli, AI destekli admin kokpiti
+    │   └── minimal/                    # (Yakında) Sade & kurumsal admin paneli
+    ├── headers/                        # 🧭 Navbar & Header Koleksiyonu (Yakında)
+    │   ├── floating-glass/             # Yüzen cam efektli modern navbar
+    │   └── megamenu-saas/              # SaaS mega menülü navbar
+    ├── footers/                        # 🔻 Footer Tasarımları (Yakında)
+    └── landing/                        # 🚀 Karşılama & Landing Sayfaları (Yakında)
+        └── saas-bento/                 # Bento-grid ve Stripe uyumlu SaaS açılış sayfası
+```
+
+---
+
+## 📦 Şablon Kataloğu (Catalog)
+
+### 🛠️ Admin Panelleri (`templates/admin/`)
+
+| Şablon | Açıklama | Teknolojiler | Hızlı İndir (`degit`) |
 | :--- | :--- | :--- | :--- |
-| [**`admin-obsidian`**](./templates/admin-obsidian) | Koyu temalı, cam efektli, AI destekli, analitik ve tam moderasyonlu Admin Paneli Kokpiti | Next.js 15, Tailwind, Prisma, NextAuth | `npx degit yunusemre-cagan/boilpoint/templates/admin-obsidian my-admin` |
-| `admin-minimal` *(Yakında)* | Sade, yüksek kontrastlı ve hafif kurumsal yönetim paneli | Next.js 15, Tailwind, SQLite/PostgreSQL | `Hazırlanıyor` |
-| `saas-landing` *(Yakında)* | Fiyatlandırma, bekleme listesi ve Bento-grid odaklı SaaS karşılama sayfası | Next.js 15, Tailwind | `Hazırlanıyor` |
+| [**`obsidian`**](./templates/admin/obsidian) | Koyu temalı, cam efektli, AI destekli (Gemini + FLUX), analitik & ısı haritalı, tam moderasyonlu kokpit | Next.js 15, Tailwind, Prisma, NextAuth | `npx degit yunusemre-cagan/boilpoint/templates/admin/obsidian my-admin` |
+| `minimal` | Sade, minimalist ve hafif kurumsal yönetim paneli | Next.js 15, Tailwind, SQLite/Postgres | *Yakında* |
+
+### 🧭 Header & Navigasyon (`templates/headers/`) *(Çok Yakında)*
+* Bağımsız, kopyalanabilir ve modern Tailwind header tasarımları.
+
+### 🚀 Landing Sayfaları (`templates/landing/`) *(Çok Yakında)*
+* Modern SaaS, portfolyo ve ürün tanıtım sayfaları.
 
 ---
 
 ## ⚡ Nasıl Kullanılır?
 
-İstediğiniz şablonu tüm repoyu klonlamadan, sadece o şablonun temiz dosyalarını sıfır git geçmişiyle yeni bir projeye indirmek için **`npx degit`** kullanabilirsiniz:
+İstediğiniz şablonu veya bileşeni tüm depoyu klonlamadan, **doğrudan o klasörün yolunu vererek** sıfır bir proje/klasör olarak çekebilirsiniz:
 
 ```bash
-# 1. İstediğiniz şablonu yeni bir klasöre indirin:
-npx degit yunusemre-cagan/boilpoint/templates/admin-obsidian yeni-projem
+# 1. İstediğiniz kategorideki şablonu indirin:
+npx degit yunusemre-cagan/boilpoint/templates/admin/obsidian yeni-yonetim-paneli
 
-# 2. Proje klasörüne gidin:
-cd yeni-projem
+# 2. Projeye girin:
+cd yeni-yonetim-paneli
 
 # 3. Bağımlılıkları yükleyin:
 npm install
@@ -39,19 +65,5 @@ npm run dev
 
 ---
 
-## 📂 Depo Yapısı
-
-```text
-boilpoint/
-├── README.md                      # Bu dosya (Şablon dizini ve kılavuz)
-└── templates/                     # Tüm bağımsız şablon projeleri
-    ├── admin-obsidian/            # 1. Admin Paneli: Koyu tema & AI kokpiti
-    └── ...
-```
-
-Her şablon `templates/<sablon-adi>` altında kendi bağımsız `package.json`, `prisma`, `tsconfig.json` ve `README.md` dosyalarına sahip eksiksiz bir projedir.
-
----
-
 ## 📄 Lisans
-Bu depodaki tüm şablonlar [MIT Lisansı](LICENSE) altında tamamen açık kaynaklıdır. İstediğiniz kişisel ya da ticari projede dilediğiniz gibi kullanabilirsiniz.
+Bu depodaki tüm şablonlar [MIT Lisansı](LICENSE) ile lisanslanmıştır. Kişisel veya ticari tüm projelerinizde dilediğiniz gibi kullanabilirsiniz.

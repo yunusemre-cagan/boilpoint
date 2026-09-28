@@ -11,7 +11,7 @@ Bu şablon, **Boilpoint** boilerplate koleksiyonunun koyu temalı, zengin özell
 ### 1. Şablonu Yeni Bir Klasöre İndirin (degit ile)
 
 ```bash
-npx degit yunusemre-cagan/boilpoint/templates/admin-obsidian yeni-yonetim-paneli
+npx degit yunusemre-cagan/boilpoint/templates/admin/obsidian yeni-yonetim-paneli
 cd yeni-yonetim-paneli
 ```
 
