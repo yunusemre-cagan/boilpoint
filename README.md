@@ -33,7 +33,7 @@ Her yeni web projesinde kimlik doğrulama, admin paneli, karanlık tema, veritab
 
 **Boilpoint** bu süreci saniyeler seviyesine indirir:
 * **🚀 Tek Komutla Kurulum (degit):** Tüm repoyu klonlamanıza gerek kalmaz. Sadece ihtiyacınız olan şablonu, sıfır git geçmişiyle doğrudan yeni projenize çekersiniz.
-* **🛡️ Sıfır Kişisel Veri & Temiz Kod:** Tüm şablonlar şifrelerden, kişisel içeriklerden ve hardcoded linklerden arındırılmış, çevre değişkenlerine (.env) bağlı jenerik mimarilerdir.
+* **🛡️ Sıfır Kişisel Veri & Temiz Kod:** Tüm şablonlar şifrelerden, kişisel içeriklerden ve hardcoded linklerden arındırılmış, çevre değişkenlerine (.env) veya parametrelere bağlı jenerik mimarilerdir.
 * **🎨 Kusursuz Tasarım Sistemi:** Özel CSS değişkenleri (design tokens), koyu/açık tema uyumu, mobil duyarlı kenar çubukları ve akıcı mikro-animasyonlar.
 * **⚡ Modern Teknoloji Yığını:** Next.js 15 (App Router & Server Actions), React 19, Prisma ORM, NextAuth ve Tailwind CSS.
 
@@ -48,9 +48,12 @@ Her yeni web projesinde kimlik doğrulama, admin paneli, karanlık tema, veritab
 | [**💎 obsidian**](./templates/admin/obsidian)<br />[🔗 Canlı İncele](https://yunusemrecagan.com/demo/admin/obsidian) | Koyu temalı, cam efektli, analitik ve AI destekli eksiksiz Admin Kokpiti | • KPI & 30 Günlük Trafik Analizi<br />• Isı Haritası (Heatmap) & Kullanıcı Akışı<br />• Gemini & FLUX ile AI İçerik/Görsel Stüdyosu<br />• Blog & Yorum Moderasyon Altyapısı<br />• CMD+K Komut Paleti & NextAuth | `npx degit yunusemre-cagan/boilpoint/templates/admin/obsidian my-admin` |
 | **minimal** *(Yakında)* | Sade, yüksek kontrastlı ve ultra hafif yönetim arayüzü | • SQLite & Postgres Desteği<br />• Minimalist Veri Tabloları<br />• Rol Tabanlı Yetkilendirme | *Geliştirme Aşamasında* |
 
-### 🧭 Navigasyon & Header (templates/headers/) *(Çok Yakında)*
-* **floating-glass**: Yüzen cam efektli, scroll duyarlı modern navbar.
-* **megamenu-saas**: Geniş açılır kategorili ve SaaS odaklı üst menü.
+### 🧭 Navigasyon & Header (templates/headers/)
+
+| Şablon Adı | Açıklama | Anahtar Özellikler | Hızlı Başlat (degit) |
+| :--- | :--- | :--- | :--- |
+| [**🧭 floating-glass**](./templates/headers/floating-glass) | Scroll duyarlı daralan, cam (glassmorphism) efektli yüzen pill navbar | • Scroll animasyonu (scroll-shrink pill)<br />• Koyu / Açık tema geçişi (next-themes)<br />• Mobil Drawer & ⌘K Arama desteği<br />• Bağımsız veya tak-çalıştır bileşen | `npx degit yunusemre-cagan/boilpoint/templates/headers/floating-glass my-header` |
+| **megamenu-saas** *(Yakında)* | Geniş açılır kategorili ve SaaS odaklı üst menü | • Çok sütunlu dropdown menüler<br />• Kategori ikonları & öne çıkanlar | *Geliştirme Aşamasında* |
 
 ### 🚀 Karşılama & Landing Sayfaları (templates/landing/) *(Çok Yakında)*
 * **saas-bento**: Modern Bento-grid düzeni, fiyatlandırma tabloları ve bekleme listesi entegrasyonu.
@@ -61,6 +64,7 @@ Her yeni web projesinde kimlik doğrulama, admin paneli, karanlık tema, veritab
 
 İstediğiniz şablonu terminalinizden tek komutla yeni projenize aktarın:
 
+### Örnek 1: Obsidian Admin Panelini Başlatma
 ```bash
 # 1. Şablonu yeni klasörünüze indirin
 npx degit yunusemre-cagan/boilpoint/templates/admin/obsidian yeni-projem
@@ -87,6 +91,16 @@ npm run dev
 > * **E-posta:** admin@example.com
 > * **Şifre:** admin123
 
+### Örnek 2: Floating Glass Navbar Başlatma
+```bash
+# Bağımsız starter olarak:
+npx degit yunusemre-cagan/boilpoint/templates/headers/floating-glass yeni-header
+cd yeni-header && npm install && npm run dev
+
+# Veya mevcut projenize sadece bileşenleri kopyalayın:
+# src/components/Navbar.tsx ve src/components/ThemeToggle.tsx
+```
+
 ---
 
 ## 📂 Depo Yapısı
@@ -96,11 +110,15 @@ boilpoint/
 ├── README.md                           # Ana katalog ve genel kullanım rehberi
 ├── LICENSE                             # MIT Açık Kaynak Lisansı
 ├── assets/                             # Vitrin ve önizleme görselleri
+│   ├── obsidian-dashboard.png
+│   └── floating-glass-navbar.png
 └── templates/
     ├── admin/                          # 🛠️ Yönetim Paneli Şablonları
     │   ├── obsidian/                   # 💎 1. Şablon: Obsidian Admin Cockpit
     │   └── minimal/                    # (Yakında) Sade & hafif admin paneli
-    ├── headers/                        # 🧭 Navbar & Header Tasarımları (Yakında)
+    ├── headers/                        # 🧭 Navbar & Header Tasarımları
+    │   ├── floating-glass/             # 🧭 1. Şablon: Floating Glass Navbar
+    │   └── megamenu-saas/              # (Yakında) SaaS mega menü
     ├── footers/                        # 🔻 Modern Footer Şablonları (Yakında)
     └── landing/                        # 🚀 SaaS & Ürün Tanıtım Sayfaları (Yakında)
 ```
