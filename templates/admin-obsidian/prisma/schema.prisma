@@ -1,0 +1,295 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String  @id @default(cuid())
+  name     String?
+  email    String  @unique
+  password String
+  role     String  @default("user")
+}
+
+model Post {
+  id               String    @id @default(cuid())
+  title            String
+  slug             String    @unique
+  excerpt          String?
+  content          String
+  coverImage       String?
+  detailCoverImage String?
+  published        Boolean   @default(false)
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  readingTime      Int       @default(0)
+  views            Int       @default(0)
+  categoryId       String?
+  comments         Comment[]
+  category         Category? @relation(fields: [categoryId], references: [id])
+  tags             PostTag[]
+
+  @@index([published, createdAt])
+}
+
+model Category {
+  id    String @id @default(cuid())
+  name  String
+  slug  String @unique
+  posts Post[]
+}
+
+model Tag {
+  id    String    @id @default(cuid())
+  name  String
+  slug  String    @unique
+  posts PostTag[]
+}
+
+model PostTag {
+  postId String
+  tagId  String
+  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  tag    Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([postId, tagId])
+}
+
+model SiteSettings {
+  id               String   @id @default(cuid())
+  siteTitle        String
+  siteDescription  String
+  heroTitle        String
+  heroSubtitle     String
+  socialLinks      String
+  updatedAt        DateTime @updatedAt
+  featuredPostSlug String?
+  usesData         String?
+  faviconUrl       String?
+  ogImageUrl       String?
+  seoKeywords      String?
+  contactTitle     String?
+  contactText      String?
+}
+
+model VisitorStats {
+  id             String   @id @default(cuid())
+  date           DateTime @unique @db.Date
+  totalVisitors  Int      @default(0)
+  uniqueVisitors Int      @default(0)
+  pageViews      Int      @default(0)
+}
+
+model About {
+  id             String          @id @default(cuid())
+  name           String
+  jobTitle       String
+  location       String
+  bio            String
+  avatarUrl      String?
+  email          String?
+  updatedAt      DateTime        @updatedAt
+  stats          String?
+  educations     Education[]
+  experiences    Experience[]
+  interests      Interest[]
+  socialAccounts SocialAccount[]
+  technologies   Technology[]
+}
+
+model Technology {
+  id      String @id @default(cuid())
+  name    String
+  aboutId String
+  about   About  @relation(fields: [aboutId], references: [id], onDelete: Cascade)
+}
+
+model Interest {
+  id          String @id @default(cuid())
+  title       String
+  description String
+  icon        String
+  color       String
+  bg          String
+  aboutId     String
+  about       About  @relation(fields: [aboutId], references: [id], onDelete: Cascade)
+}
+
+model SocialAccount {
+  id          String  @id @default(cuid())
+  platform    String
+  url         String
+  isActive    Boolean @default(true)
+  showOnAbout Boolean @default(true)
+  order       Int     @default(0)
+  aboutId     String
+  about       About   @relation(fields: [aboutId], references: [id], onDelete: Cascade)
+}
+
+model Project {
+  id               String   @id @default(cuid())
+  title            String
+  description      String
+  link             String?
+  isExternal       Boolean  @default(false)
+  tags             String   @default("[]")
+  status           String   @default("Aktif")
+  color            String   @default("from-blue-500/20 to-cyan-500/5")
+  order            Int      @default(0)
+  published        Boolean  @default(true)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  content          String?
+  coverImage       String?
+  detailCoverImage String?
+  logoUrl          String?
+  githubUrl        String?
+  liveUrl          String?
+  slug             String?  @unique
+  privacyPolicy    String?  @db.Text
+  termsOfUse       String?  @db.Text
+  privacyPolicyEn  String?  @db.Text
+  termsOfUseEn     String?  @db.Text
+
+  @@index([published, order])
+}
+
+model Experience {
+  id          String  @id @default(cuid())
+  company     String
+  position    String
+  period      String
+  description String
+  current     Boolean @default(false)
+  order       Int     @default(0)
+  aboutId     String
+  about       About   @relation(fields: [aboutId], references: [id], onDelete: Cascade)
+}
+
+model Education {
+  id          String  @id @default(cuid())
+  school      String
+  degree      String
+  period      String
+  description String?
+  order       Int     @default(0)
+  aboutId     String
+  about       About   @relation(fields: [aboutId], references: [id], onDelete: Cascade)
+}
+
+model NewsletterSubscriber {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  token        String   @unique @default(cuid())
+  confirmed    Boolean  @default(false)
+  confirmToken String?  @unique @default(cuid())
+  createdAt    DateTime @default(now())
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model GuestbookEntry {
+  id        String   @id @default(cuid())
+  name      String   @default("Ziyaretçi")
+  message   String
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+  email     String?
+  avatar    String?
+  provider  String?
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  content   String
+  status    String   @default("pending")
+  avatar    String?
+  provider  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  postId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@index([status, createdAt])
+}
+
+model PageView {
+  id        String   @id @default(cuid())
+  path      String
+  referrer  String?
+  userAgent String?
+  ipAddress String?  @db.VarChar(45)
+  createdAt DateTime @default(now())
+
+  @@index([path])
+  @@index([createdAt])
+}
+
+model RateLimit {
+  key       String   @id
+  count     Int      @default(0)
+  resetAt   DateTime
+  createdAt DateTime @default(now())
+
+  @@index([resetAt])
+}
+
+model AnalyticsEvent {
+  id         String   @id @default(cuid())
+  eventType  String
+  visitorId  String
+  sessionId  String
+  page       String
+  referrer   String?
+  userAgent  String?
+  metadata   String?
+  deviceType String?
+  browser    String?
+  flagged    Boolean  @default(false)
+  flagLabel  String?
+  ipAddress  String?  @db.VarChar(45)
+  createdAt  DateTime @default(now())
+
+  @@index([eventType])
+  @@index([visitorId])
+  @@index([sessionId])
+  @@index([page])
+  @@index([createdAt])
+  @@index([flagged])
+}
+
+model AnalyticsSession {
+  id           String    @id @default(cuid())
+  visitorId    String
+  sessionId    String    @unique
+  startedAt    DateTime  @default(now())
+  endedAt      DateTime?
+  duration     Int       @default(0)
+  bounced      Boolean   @default(true)
+  entryPage    String
+  exitPage     String?
+  pageCount    Int       @default(1)
+  deviceType   String?
+  browser      String?
+  referrer     String?
+  isNewVisitor Boolean   @default(false)
+
+  @@index([visitorId])
+  @@index([startedAt])
+  @@index([bounced])
+  @@index([isNewVisitor])
+}
